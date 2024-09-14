@@ -1,2 +1,113 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+:root {
+    --ion-color-primary: #d71921;
+    --ion-color-secondary: #ffffff;
+    --ion-font-family: 'Arial, sans-serif';
+}
+ion-content {
+    font-family: Arial, sans-serif;
+  }
+/* !---------------------------------------------------- */
+/* !                      styles                         */
+/* !---------------------------------------------------- */
+
+.position-relative{
+    position: relative!important;
+}
+.d-flex{
+    display: flex !important;
+}
+.align-center{
+    align-items: center !important;
+}
+.justify-center{
+    justify-content: center !important;
+}
+.overflow-hidden{
+    overflow: hidden!important;
+}
+
+/* !---------------------------------------------------- */
+/* !                      transition                     */
+/* !---------------------------------------------------- */
+.image-up-enter-active {
+    transition: all 0.6s ease-out;
+}
+
+.image-up-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.image-up-enter-from,
+.image-up-leave-to {
+    transform: translate( -50%,-40%);
+    opacity: 0;
+}
+
+.slide-left-enter-active {
+    transition: all 0.6s ease-out;
+}
+
+.slide-left-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+    transform: translateX( 50%);
+    opacity: 0;
+}
+
+.slide-right-enter-active {
+    transition: all 0.6s ease-out;
+}
+
+.slide-right-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+    transform: translateX(-50%);
+    opacity: 0;
+}
+.slide-up-enter-active {
+    transition: all 0.6s ease-out;
+}
+
+.slide-up-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+    transform: translateY(50%);
+    opacity: 0;
+}
+
+.slide-down-enter-active {
+    transition: all 0.6s ease-out;
+}
+
+.slide-down-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.transition{
+    transition: all 0.6s ease-in-out!important;
+}
+/* !---------------------------------------------------- */
+/* !                      transition                     */
+/* !---------------------------------------------------- */
+
+.text-primary{
+    color: var(--ion-color-primary)!important;
+}
