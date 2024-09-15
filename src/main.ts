@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import { createPinia } from 'pinia';
 
 import { 
   IonApp, 
@@ -49,8 +50,8 @@ import '@ionic/vue/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
-const app = createApp(App).use(IonicVue).use(router);
+const pinia = createPinia();
+const app = createApp(App).use(IonicVue).use(router).use(pinia);
   
 // app.component('íon-app',IonApp);
 // app.component('íon-router-outlet',IonRouterOutlet);

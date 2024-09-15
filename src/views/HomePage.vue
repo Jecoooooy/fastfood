@@ -38,12 +38,12 @@
     let main = ref(false)
 
     onMounted(() => {
-    setTimeout(() => {
-        header.value = true
         setTimeout(() => {
-        main.value = true
-        }, 200);
-    }, 100);
+            header.value = true
+            setTimeout(() => {
+            main.value = true
+            }, 200);
+        }, 100);
     })
 </script>
 

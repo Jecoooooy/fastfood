@@ -48,23 +48,25 @@
                 </ion-buttons>
               </div>
               <ion-grid :fixed="true"  >
-                <ion-row style="margin:0px -8px;">
+                <!-- <ion-row style="margin:0px -8px;"> -->
+                <transition-group name="slide-up" mode="out-in" tag="div" class="item-container">
                   <ion-col 
                     size="6"
                     size-sm="6"
                     size-md="4"
                     size-lg="3"
+                    v-show="cardDelay[index]"
                     v-for="(item,index) in foodlist"
                     :key="index"
                   >
                     <ion-card 
                       @click="goToOrderPage(item)"
-                      class="ion-no-margin" 
+                      class="ion-no-margin item-card" 
                       style="border-radius: 15px;" 
                       color="surface"> 
                       <img alt="photo not available" :src="item.image" />
                       <ion-card-header style="padding:10px;">
-                        <p>{{ item.cathegory }}</p>
+                        <p>{{ item.category }}</p>
                         <ion-card-subtitle>
                           {{item.title}}
                         </ion-card-subtitle>
@@ -79,7 +81,8 @@
                       </ion-card-content>
                     </ion-card>
                   </ion-col>
-                </ion-row>
+                </transition-group>
+                <!-- </ion-row> -->
               </ion-grid>
             </div>
       </ion-content>
@@ -113,62 +116,66 @@
   import { search,filter,mail} from 'ionicons/icons';
   import {ref,onMounted} from 'vue';
   import { useRouter } from 'vue-router';
+  import { storeToRefs } from 'pinia';
+  import { useDataStore } from '../stores/mainStore.ts';
+  const dataStore = useDataStore();
+  const { order } = storeToRefs(dataStore);
   const router = useRouter()
   let header = ref(false)
   let main = ref(false)
   let foodlist = ref([
     {
       title:'Çhicken Salad',
-      cathegory:'Chicken',
+      category:'Chicken',
       price:172,
       ratings:4,
       image:'../public/images/food1.png'
     },
     {
       title:'Sorvetes Primera',
-      cathegory:'Chicken',
+      category:'Desserts',
       price:112,
       ratings:4,
       image:'../public/images/food2.png'
     },
     {
-      title:'Fried Çhicken',
-      cathegory:'Chicken',
-      price:200,
-      ratings:4,
-      image:'../public/images/food3.png'
-    },
-    {
-      title:'Çhicken Salad',
-      cathegory:'Chicken',
+      title:'Sorvetes Primera',
+      category:'Desserts',
       price:172,
       ratings:4,
       image:'../public/images/food2.png'
     },
     {
+      title:'Fried Çhicken',
+      category:'Chicken',
+      price:200,
+      ratings:4,
+      image:'../public/images/food3.png'
+    },
+    {
+      title:'Fried Çhicken',
+      category:'Chicken',
+      price:172,
+      ratings:4,
+      image:'../public/images/food3.png'
+    },
+    {
       title:'Çhicken Salad',
-      cathegory:'Chicken',
+      category:'Chicken',
       price:172,
       ratings:4,
       image:'../public/images/food1.png'
     },
     {
       title:'Çhicken Salad',
-      cathegory:'Chicken',
-      price:172,
-      ratings:4,
-      image:'../public/images/food3.png'
-    },
-    {
-      title:'Çhicken Salad',
-      cathegory:'Chicken',
+      category:'Chicken',
       price:172,
       ratings:4,
       image:'../public/images/food1.png'
     },
     {
       title:'Sorvetes Primera',
-      cathegory:'Chicken',
+      category:'Desserts',
       price:112,
       ratings:4,
       image:'../public/images/food2.png'
@@ -176,15 +183,25 @@
   ])
 
   function goToOrderPage(item){
+    order.value = item
+    
     router.push('/orderpage')
   }
+  let cardDelay = ref([])
+  let timer = ref(100)
+
+  function enterComponent(){
+    for (let index = 0; index < foodlist.value.length; index++) {
+      setTimeout(() => {
+        cardDelay.value[index] = true;
+      }, timer.value);
+      timer.value += 150
+    }
+  }
   onMounted(() => {
-    // setTimeout(() => {
-    //   // header.value = true
-    //   setTimeout(() => {
-    //     main.value = true
-    //   }, 200);
-    // }, 1000);
+    
+    
+    enterComponent()
   })
 </script>
 <style>
@@ -227,5 +244,15 @@
   min-width: 50px; 
   border-radius: 15px;
   overflow: hidden;
+}
+.item-card img{
+    transition: scale 0.2s ease-in-out;
+}
+.item-card:hover img{
+    scale: 130%;
+}
+.item-container{
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
