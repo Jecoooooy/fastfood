@@ -1,13 +1,17 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
-
+@import 'text.css';
 :root {
     --ion-color-primary: #d71921;
     --ion-color-secondary: #ffffff;
     --ion-font-family: 'Arial, sans-serif';
 }
-ion-content {
+*{
     font-family: Arial, sans-serif;
+  }
+  ion-button:active {
+    --background: #53090d; /* Customize the background color */
+    --box-shadow: none; /* Remove shadow when active */
   }
 /* !---------------------------------------------------- */
 /* !                      styles                         */
@@ -40,9 +44,13 @@ ion-content {
     transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.image-up-enter-from,
-.image-up-leave-to {
+.image-up-enter-from {
     transform: translate( -50%,-40%);
+    opacity: 0;
+}
+.image-up-leave-to {
+
+    transform: translate( -200%, -50%)!important;
     opacity: 0;
 }
 
@@ -56,7 +64,7 @@ ion-content {
 
 .slide-left-enter-from,
 .slide-left-leave-to {
-    transform: translateX( 50%);
+    transform: translateX( 20%);
     opacity: 0;
 }
 
@@ -70,7 +78,7 @@ ion-content {
 
 .slide-right-enter-from,
 .slide-right-leave-to {
-    transform: translateX(-50%);
+    transform: translateX(-20%);
     opacity: 0;
 }
 .slide-up-enter-active {
@@ -83,7 +91,7 @@ ion-content {
 
 .slide-up-enter-from,
 .slide-up-leave-to {
-    transform: translateY(50%);
+    transform: translateY(20%);
     opacity: 0;
 }
 
@@ -97,7 +105,7 @@ ion-content {
 
 .slide-down-enter-from,
 .slide-down-leave-to {
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     opacity: 0;
 }
 

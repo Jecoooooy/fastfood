@@ -4,9 +4,9 @@
       class="transition"
       :fullscreen="true"
     > -->
-
+      <div v-show="!log" @click="enterAuth()" style="z-index:200;" class="full-size hidden-div"></div>
       <div  
-        @click="enterAuth()" 
+        
         class="full-size  overflow-hidden position-relative "
       >
         <transition name="image-up" mode="out-in">
@@ -27,6 +27,7 @@
           <transition name="slide-left" mode="out-in">
             <ion-input 
               v-show="input1"
+              mode="md"
               class="custom ion-margin-bottom"
               label="Email Address" 
               type="email"
@@ -46,6 +47,7 @@
             <ion-input 
               v-show="input2"
               class="custom"
+              mode="md"
               label="Password" 
               type="password"
               fill="outline"
@@ -62,7 +64,7 @@
           </transition>
             <br>
             <transition name="slide-up" mode="out-in">
-              <ion-button v-show="input3" expand="block" type="submit">login</ion-button>
+              <ion-button v-show="input3" expand="block" @click="logIn()">login</ion-button>
             </transition>
             <transition name="slide-up" mode="out-in">
               <ion-button v-show="input4" fill="clear" expand="block" >Login as Guest</ion-button>
@@ -73,44 +75,49 @@
     <!-- </ion-content> -->
   </ion-app>
   <ion-app v-else>
-    <ion-menu content-id="main-content" type="reveal">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Profile</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <ion-content>
-        <ion-list>
+    <ion-menu content-id="main-content" type="reveal" >
+      
+      <ion-content >
+        
+        <ion-list lines="none">
+          <div class="profile" > 
+            <ion-avatar slot="start">
+              <img alt="Silhouette of a person's head" src="../public/images/jecoy.jpg" />
+            </ion-avatar>
+            <ion-button class="ion-margin">
+            0 Points
+            </ion-button>
+          </div >
+          <div>
+            <h2 class="ion-padding-start ion-padding-top ion-no-margin">Jerico B. Bencito</h2>
+            <p class="ion-padding-start ion-no-margin">+63 916 207 7645</p>
+          </div>
           <ion-item  
-            v-for="(item,index) in router" 
+            v-for="(item,index) in routes" 
             :key="index"
-            :href="item.path"
+            @click="navigate(item.path)"
           >
-            <ion-label> {{ item.name }}</ion-label>
+            
+            <p >{{ item.name }}</p>
           </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
 
-    <ion-header >
-      <ion-toolbar >
-        <ion-buttons>
-          <ion-menu-button color="primary"></ion-menu-button>
-          <ion-title></ion-title>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-router-outlet id="main-content" />
+    <ion-router-outlet id="main-content">
+
+    </ion-router-outlet>
   </ion-app>
 </template>
 
 <script setup lang="ts">
   import { 
     IonApp, 
+    IonPage,
     IonRouterOutlet,
     IonMenu,
     IonContent,
+    IonAvatar,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -127,8 +134,8 @@
   import { useRouter } from 'vue-router';
   import {ref,onMounted} from 'vue'
   import { eye, lockClosed, personCircle } from 'ionicons/icons';
-  const router = useRouter().options.routes
-    
+  const router = useRouter()
+  const routes = router.options.routes
   let start = ref(false)
   let logo = ref(false)
   
@@ -157,20 +164,61 @@
               }, 200);
             }, 200);
           }, 200);
-        }, 100);
-      }, 300);
+        }, 300);
+      }, 500);
   }
 
+  function logIn(){
+    input4.value = false
+    setTimeout(() => {
+      input3.value = false
+      setTimeout(() => {
+        input2.value = false
+        setTimeout(() => {
+          input1.value = false
+            setTimeout(() => {
+              welcome.value = false
+              setTimeout(() => {
+                bonjour.value = false
+                setTimeout(() => {
+                  logo.value = false
+                  setTimeout(() => {
+                    start.value = true
+                  }, 1000);
+              }, 200);
+            }, 200);
+          }, 200);
+        }, 200);
+      }, 200);
+    }, 200);
+    
+  }
+  function navigate(item){
+    router.push(item);
+  }
   onMounted(() => {
     setTimeout(() => {
       logo.value = true
-    }, 200);
+    }, 500);
 })
 </script>
 <style scope>
+  .profile{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
   .full-size {
     height: 100vh;
     width: 100vw;
+  }
+  .hidden-div{
+    position: absolute;
+
+    top: 0;
+    left: 0
   }
   .remove-height{
     height: 0%!important;
@@ -189,8 +237,8 @@
     
   }
   .image-container-login{
-    left: 15%!important;
-    top: 10%!important;
+    left: 17%!important;
+    top: 13%!important;
     max-width: 100px!important;
   }
   .image-container img{
@@ -212,7 +260,7 @@
   }
 
   .custom-background{
-    background-image: linear-gradient(#d7192200,#d71921,#d71921,black);
+    background-image: linear-gradient(#d7192200,#d71921,black);
     position: absolute;
     z-index:1;
     bottom: 0;
@@ -227,8 +275,6 @@
     /* --color: #fff; */
     /* --placeholder-color: #ddd; */
     /* --placeholder-opacity: 0.8; */
-    border-radius: 20px;
-    border: 1px solid #000000;
     --padding-bottom: 0px;
     --padding-end: 10px;
     --padding-start: 10px;
@@ -241,7 +287,7 @@
   ion-input.custom.md .input-bottom .counter {
     color: var(--ion-color-primary);
   }
-  ion-input.custom:hover{
-    border: 2px solid #000000;
-  }
+  /* .input-fill-outline.sc-ion-input-md-h{
+    border-radius: 20px!important;
+  } */
 </style>

@@ -9,12 +9,8 @@ import FAQsPage from '../views/FAQsPage.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
     name: 'Home',
-    component: HomePage
+    component: HomePage,
   },
   {
     path: '/ordernow',
