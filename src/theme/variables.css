@@ -27,6 +27,14 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-tertiary-tint: #000000;
 
 
+    --ion-color-warning: #FFC107;
+    --ion-color-warning-rgb: 105, 187, 123;
+    --ion-color-warning-contrast: #fafafa;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #FF8F00;
+    --ion-color-warning-tint: #FF6F00;
+
+
     --ion-color-surface: #E0E0E0;
     --ion-color-surface-rgb: 105, 187, 123;
     --ion-color-surface-contrast: #000000;

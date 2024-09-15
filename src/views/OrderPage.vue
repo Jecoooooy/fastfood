@@ -9,7 +9,6 @@
                                 :router-link="'/ordernow'"
                                 :icon="chevronBack"
                                 text=""
-                                
                             >
                             <ion-icon :icon="chevronBack"></ion-icon>
                             </ion-back-button>  
@@ -102,6 +101,39 @@
                                 </div>
                             </ion-col>
                         </ion-row>
+
+                        <ion-row>
+                            <ion-col size="12">
+                                <transition name="slide-down" mode="out-in">
+                                    <ion-select 
+                                        mode="md"
+                                        v-show="beverage"
+                                        class="custom ion-margin-bottom"
+                                        type="email"
+                                        fill="outline"
+                                        v-model="selectedBeverage" 
+                                        placeholder="select Beverage" 
+                                        interface="popover"
+                                    >
+                                        <ion-select-option 
+                                            v-for="(item,index) in beverages" 
+                                            :key="index" 
+                                            :value="item"
+                                        >
+                                            {{item}}
+                                        </ion-select-option>
+                                    </ion-select>
+                                </transition>
+                            </ion-col>
+                            <transition name="slide-up" mode="out-in">
+                                <div v-if="drinkSize" class="d-flex justify-space-between align-center" style="width:100%;">
+                                    <ion-button size="default" color="warning" fill="solid">Regular</ion-button>
+                                    <ion-button size="default" color="dark" fill="outline">Large</ion-button>
+                                    <ion-button size="default" color="dark" fill="outline">X-Large</ion-button>
+                                </div>
+                            </transition>
+                        </ion-row>
+                        <br>
                         <transition-group name="slide-left" mode="out-in" tag="div" class="item-container">
                             <ion-col
                                 v-show="cardDelay[index]"
@@ -161,13 +193,20 @@
 
                     </ion-grid>
                 </transition>
+                <ion-button expand="block" class="addToBag">
+                    add To Bag
+                </ion-button>
+                <div style="width:100%; height:100px;"></div>
             </ion-content>
+            
     </ion-page>
 </template>
 
 <script setup>
     import { 
         IonPage,
+        IonSelect,
+        IonSelectOption,
         IonContent,
         IonHeader,
         IonToolbar, 
@@ -176,10 +215,9 @@
         IonButton,
         IonIcon,
         IonCard,
-        IonCardHeader,
-        IonCardTitle,
-        IonCardSubtitle,
-        IonCardContent,
+        IonTabs,
+        IonTabBar,
+        IonTabButton,
         IonGrid,
         IonRow,
         IonCol,
@@ -191,14 +229,14 @@
     import { storeToRefs } from 'pinia';
     import { useDataStore } from '../stores/mainStore.ts';
     const dataStore = useDataStore();
-    const { order,AddOns } = storeToRefs(dataStore);
+    const { order,AddOns,beverages } = storeToRefs(dataStore);
     let header = ref(false)
     let main = ref(false)
     let count = ref(1)
     let count1 = ref(1)
     let count2 = ref(1)
 
-
+    let selectedBeverage = ref('')
     let cardDelay = ref([])
     let timer = ref(100)
     function enterComponent(){
@@ -217,6 +255,9 @@
     let description = ref(false)
     let price = ref(false)
     let quantity = ref(false)
+    let beverage = ref(false)
+    let drinkSize = ref(false)
+    
     onMounted(() => {
     setTimeout(() => {
         header.value = true
@@ -234,16 +275,19 @@
                                 price.value = true
                                 setTimeout(() => {
                                     quantity.value = true
-                                    enterComponent()
+                                    setTimeout(() => {
+                                        beverage.value = true
+                                        setTimeout(() => {
+                                            drinkSize.value = true
+                                            enterComponent()
+                                            }, 150);
+                                        }, 150);
                                 }, 150);
                             }, 150);
                         }, 150);
                     }, 150);
                 }, 150);
             }, 150);
-
-
-
         }, 200);
     }, 100);
     })
@@ -294,5 +338,42 @@
     right: 10px;
     top: 10px;
     position: absolute;
+}
+
+
+ion-select.custom {
+    /* --background: #373737; */
+    /* --color: #fff; */
+    /* --placeholder-color: #ddd; */
+    /* --placeholder-opacity: 0.8; */
+    --padding-bottom: 0px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+    --padding-top: 0px;
+  }
+
+  ion-select.custom.ios .select-bottom .helper-text,
+  ion-select.custom.ios .select-bottom .counter,
+  ion-select.custom.md .select-bottom .helper-text,
+  ion-select.custom.md .select-bottom .counter {
+    color: var(--ion-color-primary);
+  }
+
+.addToBag{
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    width: 90%;
+    height: 70px;
+    z-index: 1000;
+    bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.685));
+    left: 50%;
+    transform: translate(-50%);
+}  
+.addToBag:active{
+    filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0.685));
+}
+.addToBag:hover{
+    filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0.685));
 }
 </style>

@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/ordernow',
     name: 'Order Now Page',
-    component: OrderNowPage
+    component: OrderNowPage,
   },
   {
     path: '/notification',

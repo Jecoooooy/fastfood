@@ -192,8 +192,9 @@
 
   function goToOrderPage(item){
     order.value = item
-    
-    router.push('/orderpage')
+    setTimeout(() => {
+      router.push('/orderpage')
+    }, 100);
   }
   let cardDelay = ref([])
   let timer = ref(100)
@@ -243,7 +244,7 @@
   background-color: gray;
 }
 .rate{
-  background-color: rgb(255, 217, 0)!important;
+  background-color: #FFC107!important;
 }
 
 .scrollable-toolbar {
