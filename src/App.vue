@@ -90,21 +90,21 @@
             <h2 class="ion-padding-start ion-padding-top ion-no-margin">Jerico B. Bencito</h2>
             <p class="ion-padding-start ion-no-margin">+63 916 207 7645</p>
           </div>
-          <ion-item  
-            v-for="(item,index) in routes" 
-            :key="index"
-            @click="navigate(item.path)"
-          >
-            
-            <p >{{ item.name }}</p>
-          </ion-item>
+          <ion-menu-toggle auto-hide="true">
+            <ion-item  
+              v-for="(item,index) in routes" 
+              :key="index"
+              @click="navigate(item.path)"
+            >
+              
+              <p >{{ item.name }}</p>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
 
-    <ion-router-outlet id="main-content">
-
-    </ion-router-outlet>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-app>
 </template>
 
@@ -114,6 +114,7 @@
     IonPage,
     IonRouterOutlet,
     IonMenu,
+    IonMenuToggle,
     IonContent,
     IonAvatar,
     IonHeader,
