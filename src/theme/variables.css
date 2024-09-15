@@ -3,8 +3,29 @@ http://ionicframework.com/docs/theming/ */
 @import 'text.css';
 :root {
     --ion-color-primary: #d71921;
+    --ion-color-primary-rgb: 105, 187, 123;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #750e13;
+    --ion-color-primary-tint: #f0989c;
+
+
     --ion-color-secondary: #ffffff;
+    --ion-color-secondary-rgb: 105, 187, 123;
+    --ion-color-secondary-contrast: #d71921;
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-shade: #750e13;
+    --ion-color-secondary-tint: #f0989c;
     --ion-font-family: 'Arial, sans-serif';
+
+
+    --ion-color-tertiary: #b8b8b8;
+    --ion-color-tertiary-rgb: 105, 187, 123;
+    --ion-color-tertiary-contrast: #d71921;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #424242;
+    --ion-color-tertiary-tint: #000000;
+
 
     --ion-color-surface: #E0E0E0;
     --ion-color-surface-rgb: 105, 187, 123;
@@ -29,7 +50,17 @@ http://ionicframework.com/docs/theming/ */
     --box-shadow: none; /* Remove shadow when active */
   }
 
-
+  .checkbox {
+    --border-radius: 8px; /* Make it a square */
+    --background: #fff;   /* Background color when unchecked */
+    --border-color: #fff;  /* Border color of the checkbox */
+    --checkmark-color: #FFC107; /* Color of the checkmark when checked */
+    --size: 20px;         /* Size of the checkbox */
+  }
+  
+  .checkbox.checked {
+    --background: #fff; /* Background color when checked */
+  }
 
 /* !---------------------------------------------------- */
 /* !                      styles                         */
@@ -47,6 +78,9 @@ p{
 .align-center{
     align-items: center !important;
 }
+.align-end{
+    align-items: end !important;
+}
 .justify-center{
     justify-content: center !important;
 }
@@ -56,7 +90,9 @@ p{
 .overflow-hidden{
     overflow: hidden!important;
 }
-
+.spacer{
+    width: 100%;
+}
 /* !---------------------------------------------------- */
 /* !                      transition                     */
 /* !---------------------------------------------------- */

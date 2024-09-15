@@ -1,7 +1,8 @@
 <template>
   <ion-page>
       <ion-header >
-          <ion-toolbar >
+      <transition name="slide-down" mode="out-in">
+          <ion-toolbar v-show="header">
             <ion-buttons>
               <ion-menu-button  color="primary"></ion-menu-button>
               <ion-title class="ion-text-start" > Our Foods</ion-title>
@@ -13,40 +14,47 @@
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
+      </transition>
       </ion-header>
       <ion-content >
             <div id="container" class="ion-padding">
-              <ion-input 
-                mode="md"
-                class="custom ion-margin-bottom"
-                label="Search" 
-                type="email"
-                :clear-input="true"
-                fill="outline"
-                label-placement="stacked"
-              > 
-                <ion-icon 
-                  size="small" 
-                  slot="start" 
-                  :icon="search"
-                  aria-hidden="true"
-                ></ion-icon>
-                <ion-icon 
-                  size="small" 
-                  slot="end" 
-                  :icon="filter"
-                  aria-hidden="true"
-                ></ion-icon>
-              </ion-input>
-              <div class="scrollable-toolbar">
-                <ion-buttons >
-                  <ion-button size="default" fill="solid">All</ion-button>
-                  <ion-button>Breakfast</ion-button>
-                  <ion-button>Chickken</ion-button>
-                  <ion-button>Seafood</ion-button>
-                  <ion-button>Beef</ion-button>
-                </ion-buttons>
-              </div>
+              <transition name="slide-left" mode="out-in">
+                <ion-input 
+                  v-show="searchBar"
+                  mode="md"
+                  class="custom ion-margin-bottom"
+                  label="Search" 
+                  type="email"
+                  :clear-input="true"
+                  fill="outline"
+                  label-placement="stacked"
+                > 
+                  <ion-icon 
+                    size="small" 
+                    slot="start" 
+                    :icon="search"
+                    aria-hidden="true"
+                  ></ion-icon>
+                  <ion-icon 
+                    size="small" 
+                    slot="end" 
+                    :icon="filter"
+                    aria-hidden="true"
+                  ></ion-icon>
+                </ion-input>
+              </transition>
+              <transition name="slide-left" mode="out-in">
+                <div v-show="buttonBar" class="scrollable-toolbar">
+                  <ion-buttons >
+                    <ion-button size="default" fill="solid">All</ion-button>
+                    <ion-button>Breakfast</ion-button>
+                    <ion-button>Chickken</ion-button>
+                    <ion-button>Seafood</ion-button>
+                    <ion-button>Beef</ion-button>
+                  </ion-buttons>
+                </div>
+              </transition>
+
               <ion-grid :fixed="true"  >
                 <!-- <ion-row style="margin:0px -8px;"> -->
                 <transition-group name="slide-up" mode="out-in" tag="div" class="item-container">
@@ -198,10 +206,20 @@
       timer.value += 150
     }
   }
+
+  let buttonBar = ref(false)
+  let searchBar = ref(false)
   onMounted(() => {
-    
-    
-    enterComponent()
+    setTimeout(() => {
+      header.value = true
+      setTimeout(() => {
+        searchBar.value=true
+        setTimeout(() => {
+          buttonBar.value=true
+          enterComponent()
+        },100);
+      }, 100);
+    }, 100);
   })
 </script>
 <style>

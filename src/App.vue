@@ -259,7 +259,7 @@
   }
 
   .custom-background{
-    background-image: linear-gradient(#d7192200,#d71921,black);
+    background-image: linear-gradient(#d7192200,#d71921,rgb(51, 1, 1));
     position: absolute;
     z-index:1;
     bottom: 0;
