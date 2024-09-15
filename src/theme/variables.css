@@ -5,7 +5,22 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-primary: #d71921;
     --ion-color-secondary: #ffffff;
     --ion-font-family: 'Arial, sans-serif';
+
+    --ion-color-surface: #E0E0E0;
+    --ion-color-surface-rgb: 105, 187, 123;
+    --ion-color-surface-contrast: #000000;
+    --ion-color-surface-contrast-rgb: 0, 0, 0;
+    --ion-color-surface-shade: #BDBDBD;
+    --ion-color-surface-tint: #FAFAFA;
 }
+.ion-color-surface {
+    --ion-color-base: var(--ion-color-surface);
+    --ion-color-base-rgb: var(--ion-color-surface-rgb);
+    --ion-color-contrast: var(--ion-color-surface-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-surface-contrast-rgb);
+    --ion-color-shade: var(--ion-color-surface-shade);
+    --ion-color-tint: var(--ion-color-surface-tint);
+  }
 *{
     font-family: Arial, sans-serif;
   }
@@ -13,10 +28,16 @@ http://ionicframework.com/docs/theming/ */
     --background: #53090d; /* Customize the background color */
     --box-shadow: none; /* Remove shadow when active */
   }
+
+
+
 /* !---------------------------------------------------- */
 /* !                      styles                         */
 /* !---------------------------------------------------- */
 
+p{
+    margin: 0;
+}
 .position-relative{
     position: relative!important;
 }

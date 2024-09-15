@@ -5,16 +5,14 @@
       :fullscreen="true"
     > -->
       <div v-show="!log" @click="enterAuth()" style="z-index:200;" class="full-size hidden-div"></div>
-      <div  
-        
-        class="full-size  overflow-hidden position-relative "
-      >
+        <div :class="' custom-background transition ' + (!log? '' : 'remove-height')"></div>
+      <div  class="full-size mobile  overflow-hidden position-relative ">
         <transition name="image-up" mode="out-in">
           <div v-show="logo" :class="'image-container transition ' + (!log? '':'image-container-login')">
             <img  src="../public/images/logo_white.png" alt="My Image"></img>
           </div>
         </transition>
-        <div :class="' custom-background transition ' + (!log? '' : 'remove-height')"></div>
+        <br><br><br>
         <ion-content class="ion-padding ion-margin-top">
           <transition name="slide-right">
             <h1 v-show="bonjour"><strong>Bonjour!</strong></h1>
@@ -290,4 +288,8 @@
   /* .input-fill-outline.sc-ion-input-md-h{
     border-radius: 20px!important;
   } */
+  .mobile{
+    max-width: 500px;
+    margin: auto;
+  }
 </style>
