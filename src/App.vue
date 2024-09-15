@@ -285,9 +285,9 @@
   ion-input.custom.md .input-bottom .counter {
     color: var(--ion-color-primary);
   }
-  /* .input-fill-outline.sc-ion-input-md-h{
-    border-radius: 20px!important;
-  } */
+  .input-fill-outline.sc-ion-input-md-h{
+    --border-radius: 15px!important;
+  }
   .mobile{
     max-width: 500px;
     margin: auto;
