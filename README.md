@@ -8,9 +8,6 @@ Welcome to My Fast Food App Project! This project uses Ionic, Vue.js, and Capaci
 - [Installation](#installation)
 - [Usage](#usage)
 - [Running Locally](#running-locally)
-- [Building for Production](#building-for-production)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
@@ -21,7 +18,7 @@ To get started with this project, you'll need to have Node.js and npm installed.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/yourusername/your-repository.git](https://github.com/Jecoooooy/fastfood.git
     ```
 
 2. Navigate into the project directory:
