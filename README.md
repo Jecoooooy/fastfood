@@ -1,6 +1,6 @@
 # Fast Food App (Ionic Vue Capacitor Project)
 
-Welcome to My Fast Food App Project! This project uses Ionic, Vue.js, and Capacitor to build a cross-platform mobile application.
+Welcome to My Fast Food App Project! This project uses Ionic, Vue.js, Capacitor and vanilla css to build a cross-platform mobile application.
 
 ## Table of Contents
 
