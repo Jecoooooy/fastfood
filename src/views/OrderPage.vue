@@ -308,6 +308,7 @@
 }
 .heart-button{
     position: absolute;
+    z-index: 20;
     bottom: -23px;
     right: 25px;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.521));

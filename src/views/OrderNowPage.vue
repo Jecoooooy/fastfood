@@ -1,12 +1,12 @@
 <template>
   <ion-page>
-      <ion-header >
+      <!-- <ion-header > -->
+      <!-- </ion-header> -->
       <transition name="slide-down" mode="out-in">
-          <ion-toolbar v-show="header">
+          <ion-toolbar  color="secondary">
             <ion-buttons>
               <ion-menu-button  color="primary"></ion-menu-button>
               <ion-title class="ion-text-start" > Our Foods</ion-title>
-              
             </ion-buttons>
             <ion-buttons slot="end">
               <ion-button>
@@ -15,7 +15,6 @@
             </ion-buttons>
           </ion-toolbar>
       </transition>
-      </ion-header>
       <ion-content >
             <div id="container" class="ion-padding">
               <transition name="slide-left" mode="out-in">
@@ -57,7 +56,7 @@
 
               <ion-grid :fixed="true"  >
                 <!-- <ion-row style="margin:0px -8px;"> -->
-                <transition-group name="slide-up" mode="out-in" tag="div" class="item-container">
+                <transition-group name="slide-up" mode="out-in" tag="div" style="margin:0px -8px;" class="item-container">
                   <ion-col 
                     size="6"
                     size-sm="6"
@@ -127,68 +126,11 @@
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '../stores/mainStore.ts';
   const dataStore = useDataStore();
-  const { order } = storeToRefs(dataStore);
+  const { order,foodlist } = storeToRefs(dataStore);
   const router = useRouter()
   let header = ref(false)
   let main = ref(false)
-  let foodlist = ref([
-    {
-      title:'Çhicken Salad',
-      category:'Chicken',
-      price:172,
-      ratings:4,
-      image:'../public/images/food1.png'
-    },
-    {
-      title:'Sorvetes Primera',
-      category:'Desserts',
-      price:112,
-      ratings:4,
-      image:'../public/images/food2.png'
-    },
-    {
-      title:'Sorvetes Primera',
-      category:'Desserts',
-      price:172,
-      ratings:4,
-      image:'../public/images/food2.png'
-    },
-    {
-      title:'Fried Çhicken',
-      category:'Chicken',
-      price:200,
-      ratings:4,
-      image:'../public/images/food3.png'
-    },
-    {
-      title:'Fried Çhicken',
-      category:'Chicken',
-      price:172,
-      ratings:4,
-      image:'../public/images/food3.png'
-    },
-    {
-      title:'Çhicken Salad',
-      category:'Chicken',
-      price:172,
-      ratings:4,
-      image:'../public/images/food1.png'
-    },
-    {
-      title:'Çhicken Salad',
-      category:'Chicken',
-      price:172,
-      ratings:4,
-      image:'../public/images/food1.png'
-    },
-    {
-      title:'Sorvetes Primera',
-      category:'Desserts',
-      price:112,
-      ratings:4,
-      image:'../public/images/food2.png'
-    },
-  ])
+
 
   function goToOrderPage(item){
     order.value = item
@@ -249,6 +191,7 @@
 
 .scrollable-toolbar {
   display: flex;
+  align-items: center;
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none;  /* For Internet Explorer and Edge */

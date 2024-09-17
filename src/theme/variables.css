@@ -49,27 +49,36 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-contrast-rgb: var(--ion-color-surface-contrast-rgb);
     --ion-color-shade: var(--ion-color-surface-shade);
     --ion-color-tint: var(--ion-color-surface-tint);
-  }
+}
 *{
     font-family: Arial, sans-serif;
-  }
-  ion-button:active {
+}
+ion-button:active {
     --background: #53090d; /* Customize the background color */
     --box-shadow: none; /* Remove shadow when active */
-  }
+}
 
-  .checkbox {
+.checkbox {
     --border-radius: 8px; /* Make it a square */
     --background: #fff;   /* Background color when unchecked */
     --border-color: #fff;  /* Border color of the checkbox */
     --checkmark-color: #FFC107; /* Color of the checkmark when checked */
     --size: 20px;         /* Size of the checkbox */
-  }
-  
-  .checkbox.checked {
-    --background: #fff; /* Background color when checked */
-  }
+}
 
+.checkbox.checked {
+    --background: #fff; /* Background color when checked */
+}
+
+ion-menu::part(backdrop) {
+    background-color:#270406;
+}
+
+ion-menu::part(container) {
+    border-radius: 0 10px 10px 0;
+
+    box-shadow: 4px 0px 16px #5e02077e;
+}
 /* !---------------------------------------------------- */
 /* !                      styles                         */
 /* !---------------------------------------------------- */
@@ -132,7 +141,7 @@ p{
 
 .slide-left-enter-from,
 .slide-left-leave-to {
-    transform: translateX( 20%);
+    transform: translateX( 20px);
     opacity: 0;
 }
 
@@ -146,7 +155,7 @@ p{
 
 .slide-right-enter-from,
 .slide-right-leave-to {
-    transform: translateX(-20%);
+    transform: translateX(-20px);
     opacity: 0;
 }
 .slide-up-enter-active {
@@ -159,7 +168,7 @@ p{
 
 .slide-up-enter-from,
 .slide-up-leave-to {
-    transform: translateY(20%);
+    transform: translateY(20px);
     opacity: 0;
 }
 
@@ -173,7 +182,7 @@ p{
 
 .slide-down-enter-from,
 .slide-down-leave-to {
-    transform: translateY(-20%);
+    transform: translateY(-20px);
     opacity: 0;
 }
 

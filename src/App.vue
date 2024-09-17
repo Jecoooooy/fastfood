@@ -73,10 +73,9 @@
     <!-- </ion-content> -->
   </ion-app>
   <ion-app v-else>
-    <ion-menu content-id="main-content" type="reveal" >
+    <ion-menu content-id="main-content" type="push" >
       
-      <ion-content >
-        
+      <!-- <ion-content > -->
         <ion-list lines="none">
           <div class="profile" > 
             <ion-avatar slot="start">
@@ -101,14 +100,14 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-      </ion-content>
+      <!-- </ion-content> -->
     </ion-menu>
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-app>
 </template>
 
-<script setup lang="ts">
+<script setup>
   import { 
     IonApp, 
     IonPage,
@@ -135,7 +134,7 @@
   import { eye, lockClosed, personCircle } from 'ionicons/icons';
   const router = useRouter()
   const routes = router.options.routes
-  let start = ref(false)
+  let start = ref(false) // false
   let logo = ref(false)
   
   let log = ref(false)
@@ -183,7 +182,7 @@
                   logo.value = false
                   setTimeout(() => {
                     start.value = true
-                  }, 1000);
+                  }, 700);
               }, 200);
             }, 200);
           }, 200);
