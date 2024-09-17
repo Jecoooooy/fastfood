@@ -31,7 +31,7 @@
                         <div></div>
                         <transition name="slide-left" mode="out-in">
                             <ion-text v-show="divTransition.viewAll"color="primary">
-                                <ion-button size="small" color="secondary">
+                                <ion-button size="small" color="primary" fill="clear">
                                     View All
                                     <ion-icon
                                         size="small" 
