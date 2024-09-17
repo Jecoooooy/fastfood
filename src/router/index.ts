@@ -7,7 +7,21 @@ import NotificationsPage from '../views/NotificationsPage.vue';
 import StoreLocation from '../views/StoreLocation.vue';
 import FAQsPage from '../views/FAQsPage.vue';
 import Dashboard from '../views/Dashboard.vue';
-
+import { 
+  eye, 
+  lockClosed, 
+  personCircle,
+  chevronForwardOutline,
+  notifications,
+  storefront,
+  helpCircle,
+  mail,
+  person,
+  heart,
+  location,
+  fastFoodOutline,
+  timeOutline
+} from 'ionicons/icons';
 const routes: Array<RouteRecordRaw> = [
   {
     children:[
@@ -16,30 +30,36 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Home',
         component: HomePage,
         notif:0,
+        image:'./images/logo.png'
+        
       },
       {
         path: '/ordernow',
         name: 'Order Now',
         component: OrderNowPage,
         notif:0,
+        icon:fastFoodOutline
       },
       {
         path: '/notification',
         name: 'Notifications',
         component: NotificationsPage,
         notif:4,
+        icon:notifications
       },
       {
         path: '/storelocation',
         name: 'Store Location',
         component: StoreLocation,
         notif:0,
+        icon:storefront
       },
       {
         path: '/faqs',
         name: 'FAQs Page',
         component: FAQsPage,
         notif:0,
+        icon:helpCircle
       },
     ]
   },

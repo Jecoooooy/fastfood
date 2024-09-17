@@ -2,7 +2,6 @@
   <ion-page>
       <!-- <ion-header > -->
       <!-- </ion-header> -->
-      <transition name="slide-down" mode="out-in">
           <ion-toolbar  color="secondary">
             <ion-buttons>
               <ion-menu-button  color="primary"></ion-menu-button>
@@ -14,8 +13,7 @@
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
-      </transition>
-      <ion-content >
+      <ion-content color="secondary">
             <div id="container" class="ion-padding">
               <transition name="slide-left" mode="out-in">
                 <ion-input 
@@ -45,11 +43,11 @@
               <transition name="slide-left" mode="out-in">
                 <div v-show="buttonBar" class="scrollable-toolbar">
                   <ion-buttons >
-                    <ion-button size="default" fill="solid">All</ion-button>
-                    <ion-button>Breakfast</ion-button>
-                    <ion-button>Chickken</ion-button>
-                    <ion-button>Seafood</ion-button>
-                    <ion-button>Beef</ion-button>
+                    <ion-button color="primary"  fill="solid">All</ion-button>
+                    <ion-button  color="tertiary"  fill="solid">Breakfast</ion-button>
+                    <ion-button  color="tertiary" fill="solid">Chicken</ion-button>
+                    <ion-button  color="tertiary" fill="solid">Seafood</ion-button>
+                    <ion-button  color="tertiary" fill="solid">Beef</ion-button>
                   </ion-buttons>
                 </div>
               </transition>
@@ -203,6 +201,7 @@
 .scrollable-toolbar ion-button {
   flex-shrink: 0;
   margin-right: 15px;
+  min-height: 50px;
   min-width: 50px; 
   border-radius: 15px;
   overflow: hidden;

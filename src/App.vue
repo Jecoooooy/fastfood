@@ -100,15 +100,44 @@
                 Jerico B. Bencito
               </strong>
             </h2>
-            <p class="ion-padding-start ion-padding-bottom ">+63 916 207 9999</p>
+            <p class="ion-padding-start ion-padding-bottom ">+63 999 999 9999</p>
           </div>
           <ion-menu-toggle auto-hide="true">
             <ion-item  
               v-for="(item,index) in routes[0].children" 
               :key="index"
               @click="navigate(item.path)"
+            > 
+
+              <ion-icon
+                v-if="item.icon" 
+                color="tertiary" 
+                aria-hidden="true" 
+                :icon="item.icon" 
+                slot="start"
+              ></ion-icon>
+              <ion-avatar 
+                v-else 
+                class="menu-item-avatar"
+                slot="start"
+              >
+                <img :src="item.image" alt="">
+              </ion-avatar>
+              <p >{{ item.name }}</p>
+              <ion-note  slot="end">
+                <div v-if="item.notif != 0" class="notif">
+                  <p>
+                    {{ item.notif }}
+                  </p>
+                </div>
+              </ion-note>
+            </ion-item>
+
+            <ion-item  
+              v-for="(item,index) in subMenu" 
+              :key="index"
             >
-            <ion-icon aria-hidden="true" :icon="eye" slot="start"></ion-icon>
+            <ion-icon color="tertiary" aria-hidden="true" :icon="item.icon" slot="start"></ion-icon>
               <p >{{ item.name }}</p>
             <ion-note  slot="end">
               <div v-if="item.notif != 0" class="notif">
@@ -152,12 +181,53 @@
   } from '@ionic/vue';
   import { useRouter } from 'vue-router';
   import {ref,onMounted} from 'vue'
-  import { eye, lockClosed, personCircle,chevronForwardOutline } from 'ionicons/icons';
+  import { 
+    eye, 
+    lockClosed, 
+    personCircle,
+    chevronForwardOutline,
+    notifications,
+    storefront,
+    helpCircle,
+    mail,
+    person,
+    heart,
+    location,
+    timeOutline,
+    sync
+  } from 'ionicons/icons';
   const router = useRouter()
   const routes = router.options.routes
   let start = ref(false) // false
   let logo = ref(false)
   
+  let subMenu = ref([
+    {
+      name:'My Orders', 
+      icon:mail, 
+      notif:2
+    },
+    {
+      name:'My Account', 
+      icon:person, 
+      notif:0
+    },
+    {
+      name:'My Favorites', 
+      icon:heart, 
+      notif:0
+    },
+    {
+      name:'Order Tracker', 
+      icon:location, 
+      notif:0
+    },
+    {
+      name:'Order History', 
+      icon:timeOutline, 
+      notif:0
+    },
+  ])
   let log = ref(false)
   let bonjour = ref(false)
   let welcome = ref(false)
@@ -217,7 +287,7 @@
   }
   async function  goToDashboard(){
     router.push('/dashboard')
-    await menuController.close()
+      await menuController.close()
   }
   onMounted(() => {
     setTimeout(() => {
@@ -226,6 +296,14 @@
 })
 </script>
 <style scope>
+  .menu-item-avatar{
+    width: 25px;
+  }
+  .menu-item-avatar img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
   .profile-container{
     width: 100%;
     height: 100px;

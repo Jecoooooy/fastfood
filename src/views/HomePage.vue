@@ -7,7 +7,7 @@
                 <ion-buttons>
                     <ion-menu-button color="primary"></ion-menu-button>
                 </ion-buttons>
-                <ion-title>
+                <ion-title @click="goToDashboard()">
                     <ion-button fill="clear">
                         <div class="crown">
                             <img src="../../public/images/crown.svg" alt="">
@@ -377,7 +377,9 @@
             }
         }
     }
-
+    async function  goToDashboard(){
+        router.push('/dashboard')
+    }
     function loadComponents(){
         let delayLoad = 0
         Object.keys(divTransition).forEach(key => {
