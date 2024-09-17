@@ -83,7 +83,7 @@
             </div>
             <div @click="goToDashboard()" class="d-flex align-center" style="padding-left: 20px;">
                 <div class="crown">
-                    <img src="../../public/images/crown.svg" alt="">
+                    <img src="../public/images/crown.svg" alt="">
                 </div>
                 <p style="padding: 0 30px;">0 Points</p>
                 <ion-icon
