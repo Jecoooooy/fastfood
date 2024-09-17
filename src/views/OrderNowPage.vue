@@ -2,7 +2,7 @@
   <ion-page>
       <!-- <ion-header > -->
       <!-- </ion-header> -->
-          <ion-toolbar  color="secondary">
+          <ion-toolbar  >
             <ion-buttons>
               <ion-menu-button  color="primary"></ion-menu-button>
               <ion-title class="ion-text-start" > Our Foods</ion-title>
@@ -13,7 +13,7 @@
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
-      <ion-content color="secondary">
+      <ion-content >
             <div id="container" class="ion-padding">
               <transition name="slide-left" mode="out-in">
                 <ion-input 

@@ -2,7 +2,7 @@
     <ion-page>
             <ion-header  >
                 <!-- <transition name="slide-down" mode="out-in"> -->
-                    <ion-toolbar color="gray">
+                    <ion-toolbar >
                         <ion-buttons slot="start">
                             <ion-back-button
                                 style="margin-left: 10px;"

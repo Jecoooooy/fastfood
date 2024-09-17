@@ -2,7 +2,7 @@
     <ion-page>
 
         <!-- <ion-header  > -->
-            <ion-toolbar color="secondary">
+            <ion-toolbar>
             <ion-buttons>
                 <ion-menu-button color="primary"></ion-menu-button>
                 <ion-title></ion-title>
@@ -10,7 +10,7 @@
             </ion-toolbar>
         <!-- </ion-header> -->
 
-        <ion-content color="secondary">
+        <ion-content >
         <transition name="slide-up" mode="out-in">
             <div v-if="main" class="d-flex align-center justify-center" style="height: 100%;">
                 this is Notification page

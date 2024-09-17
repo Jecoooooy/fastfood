@@ -1,7 +1,7 @@
 <template>
     <ion-page>
 
-            <ion-toolbar color="secondary">
+            <ion-toolbar >
                 <ion-buttons>
                     <ion-menu-button color="primary"></ion-menu-button>
                     <ion-text color="dark">
@@ -10,7 +10,7 @@
                 </ion-buttons>
             </ion-toolbar>
 
-        <ion-content color="secondary">
+        <ion-content >
             <ion-grid class="ion-padding">
                 <ion-row class="align-center">
                     <ion-col size="2">
