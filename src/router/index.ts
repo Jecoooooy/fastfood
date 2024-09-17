@@ -30,7 +30,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Home',
         component: HomePage,
         notif:0,
-        image:'./images/logo.png'
+        image:'fastfood/images/logo.png'
         
       },
       {

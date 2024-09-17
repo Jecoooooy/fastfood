@@ -3,7 +3,7 @@
 
         <!-- <ion-header  > -->
     <transition name="slide-down" mode="out-in">
-            <ion-toolbar v-show="header" color="secondary" >
+            <ion-toolbar v-show="header" >
                 <ion-buttons>
                     <ion-menu-button color="primary"></ion-menu-button>
                 </ion-buttons>
@@ -30,7 +30,7 @@
     </transition>
         <!-- </ion-header> -->
 
-        <ion-content :fullscreen="true" ref="contentRef" color="secondary" scrollEvents="true" @ionScroll="scrolling" >
+        <ion-content :fullscreen="true" ref="contentRef"  scrollEvents="true" @ionScroll="scrolling" >
         <transition name="slide-up" mode=out-in>
             <div class="container" v-show="main">
                 <div class="ion-padding">
