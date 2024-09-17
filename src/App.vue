@@ -65,7 +65,7 @@
               <ion-button v-show="input3" expand="block" @click="logIn()">login</ion-button>
             </transition>
             <transition name="slide-up" mode="out-in">
-              <ion-button v-show="input4" fill="clear" expand="block" >Login as Guest</ion-button>
+              <ion-button v-show="input4" fill="clear" @click="logIn()" expand="block" >Login as Guest</ion-button>
             </transition>
           </form>
         </ion-content>
@@ -343,10 +343,24 @@
   }
   .hidden-div{
     position: absolute;
-
+    overflow: hidden;
     top: 0;
     left: 0
   }
+  .hidden-div::after{
+    content: 'Tap Anywhere';
+    /* text-shadow: 1px 1px 2px white; */
+    color: white;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-align: center;
+    position: absolute;
+    font-size: 10px;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%);
+
+  } 
   .remove-height{
     height: 0%!important;
     opacity: 0!important;
