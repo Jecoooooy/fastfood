@@ -1,8 +1,8 @@
 <template>
     <ion-page>
             <ion-header  >
-                <transition name="slide-down" mode="out-in">
-                    <ion-toolbar v-show="header" color="gray">
+                <!-- <transition name="slide-down" mode="out-in"> -->
+                    <ion-toolbar color="gray">
                         <ion-buttons slot="start">
                             <ion-back-button
                                 style="margin-left: 10px;"
@@ -22,7 +22,7 @@
                             </ion-button>
                         </ion-buttons>
                     </ion-toolbar>
-                </transition>
+                <!-- </transition> -->
             </ion-header>
             <ion-content :fullscreen="true" class="ion-padding">
                 <transition name="slide-up" mode="out-in">

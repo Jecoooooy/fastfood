@@ -1,22 +1,20 @@
 <template>
     <ion-page>
-
-    <transition name="slide-down" mode="out-in">
-        <ion-header v-show="header" >
-            <ion-toolbar >
+        <!-- <ion-header > -->
+            <ion-toolbar  color="secondary">
             <ion-buttons>
                 <ion-menu-button color="primary"></ion-menu-button>
                 <ion-title></ion-title>
             </ion-buttons>
             </ion-toolbar>
-        </ion-header>
-    </transition>
-
+        <!-- </ion-header> -->
     <transition name="slide-up" mode="out-in">
-        <ion-content v-show="main">
-            <div id="container">
-            this is Home
-            </div>
+        <ion-content color="secondary">
+            <transition name="slide-up" mode="out-in">
+                <div v-if="main"  class="d-flex align-center justify-center" style="height: 100%;">
+                    this is FAQs page
+                </div>
+            </transition>
         </ion-content>
     </transition>
     </ion-page>

@@ -194,7 +194,7 @@
     function enterComponents(){
         let delayLoad = 200
         Object.keys(divTransition).forEach(key => {
-            console.log(key);
+            
             
             setTimeout(() => {
                 divTransition[key] = true
