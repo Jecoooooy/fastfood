@@ -8,9 +8,6 @@ Welcome to My Fast Food App Project! This project uses Ionic, Vue.js, and Capaci
 - [Installation](#installation)
 - [Usage](#usage)
 - [Running Locally](#running-locally)
-- [Building for Production](#building-for-production)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
