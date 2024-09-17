@@ -10,7 +10,7 @@
                 <ion-title @click="goToDashboard()">
                     <ion-button fill="clear">
                         <div class="crown">
-                            <img src="../../public/images/crown.svg" alt="">
+                            <img src="/images/crown.svg" alt="">
                         </div>
                         <p style="padding-left:20px;">0 Points</p>
                         <ion-icon
@@ -23,7 +23,7 @@
                 </ion-title>
                 <ion-buttons slot="end">
                     <ion-avatar  size="small">
-                        <img alt="Silhouette of a person's head" src="../../public/images/jecoy.jpg" />
+                        <img alt="Silhouette of a person's head" src="/images/jecoy.jpg" />
                     </ion-avatar>
                 </ion-buttons>
             </ion-toolbar>
