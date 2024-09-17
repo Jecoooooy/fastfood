@@ -1,37 +1,76 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue'
-import OrderNowPage from '../views/OrderNowPage.vue'
-import OrderPage from '../views/OrderPage.vue'
-import NotificationsPage from '../views/NotificationsPage.vue'
-import StoreLocation from '../views/StoreLocation.vue'
-import FAQsPage from '../views/FAQsPage.vue'
+import HomePage from '../views/HomePage.vue';
+import OrderNowPage from '../views/OrderNowPage.vue';
+import OrderPage from '../views/OrderPage.vue';
+import NotificationsPage from '../views/NotificationsPage.vue';
+import StoreLocation from '../views/StoreLocation.vue';
+import FAQsPage from '../views/FAQsPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    children:[
+      {
+        path: '/',
+        name: 'Home',
+        component: HomePage,
+        notif:0,
+      },
+      {
+        path: '/ordernow',
+        name: 'Order Now',
+        component: OrderNowPage,
+        notif:0,
+      },
+      {
+        path: '/notification',
+        name: 'Notifications',
+        component: NotificationsPage,
+        notif:4,
+      },
+      {
+        path: '/storelocation',
+        name: 'Store Location',
+        component: StoreLocation,
+        notif:0,
+      },
+      {
+        path: '/faqs',
+        name: 'FAQs Page',
+        component: FAQsPage,
+        notif:0,
+      },
+    ]
+  },
   {
     path: '/',
     name: 'Home',
     component: HomePage,
+    notif:0,
   },
   {
     path: '/ordernow',
-    name: 'Order Now Page',
+    name: 'Order Now',
     component: OrderNowPage,
+    notif:0,
   },
   {
     path: '/notification',
-    name: 'Notifications Page',
-    component: NotificationsPage
+    name: 'Notifications',
+    component: NotificationsPage,
+    notif:4,
   },
   {
     path: '/storelocation',
     name: 'Store Location',
-    component: StoreLocation
+    component: StoreLocation,
+    notif:0,
   },
   {
     path: '/faqs',
     name: 'FAQs Page',
-    component: FAQsPage
+    component: FAQsPage,
+    notif:0,
   },
   {
     path: '/orderpage',

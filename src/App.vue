@@ -77,26 +77,46 @@
       
       <!-- <ion-content > -->
         <ion-list lines="none">
-          <div class="profile" > 
-            <ion-avatar slot="start">
+          <div class="profile-container" > 
+            <div class="profile"  >
               <img alt="Silhouette of a person's head" src="../public/images/jecoy.jpg" />
-            </ion-avatar>
-            <ion-button class="ion-margin">
-            0 Points
-            </ion-button>
+            </div>
+            <div class="d-flex align-center" style="padding-left: 20px;">
+                <div class="crown">
+                    <img src="../../public/images/crown.svg" alt="">
+                </div>
+                <p style="padding: 0 30px;">0 Points</p>
+                <ion-icon
+                    color="primary"
+                    slot="end" 
+                    :icon="chevronForwardOutline"
+                    aria-hidden="true"
+                > </ion-icon>
+            </div>
           </div >
           <div>
-            <h2 class="ion-padding-start ion-padding-top ion-no-margin">Jerico B. Bencito</h2>
-            <p class="ion-padding-start ion-no-margin">+63 916 207 7645</p>
+            <h2 class="ion-padding-start ">
+              <strong>
+                Jerico B. Bencito
+              </strong>
+            </h2>
+            <p class="ion-padding-start ion-padding-bottom ">+63 916 207 9999</p>
           </div>
           <ion-menu-toggle auto-hide="true">
             <ion-item  
-              v-for="(item,index) in routes" 
+              v-for="(item,index) in routes[0].children" 
               :key="index"
               @click="navigate(item.path)"
             >
-              
+            <ion-icon aria-hidden="true" :icon="eye" slot="start"></ion-icon>
               <p >{{ item.name }}</p>
+            <ion-note  slot="end">
+              <div v-if="item.notif != 0" class="notif">
+                <p>
+                  {{ item.notif }}
+                </p>
+              </div>
+            </ion-note>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
@@ -126,15 +146,16 @@
     IonButtons,
     IonButton,
     IonInput,
+    IonNote,
     IonIcon,
 
   } from '@ionic/vue';
   import { useRouter } from 'vue-router';
   import {ref,onMounted} from 'vue'
-  import { eye, lockClosed, personCircle } from 'ionicons/icons';
+  import { eye, lockClosed, personCircle,chevronForwardOutline } from 'ionicons/icons';
   const router = useRouter()
   const routes = router.options.routes
-  let start = ref(false) // false
+  let start = ref(true) // false
   let logo = ref(false)
   
   let log = ref(false)
@@ -201,12 +222,38 @@
 })
 </script>
 <style scope>
-  .profile{
+  .profile-container{
     width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
     padding: 15px;
+  }
+  .profile{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .notif{
+    background-color: var(--ion-color-warning);
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #f4f4f4;
+    border-radius: 50%;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+  .notif p{
+    margin-right:1px ;
+    margin-top: 2px;
   }
   .full-size {
     height: 100vh;
