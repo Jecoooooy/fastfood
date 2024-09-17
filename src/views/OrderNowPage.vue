@@ -5,8 +5,8 @@
           <ion-toolbar  >
             <ion-buttons>
               <ion-menu-button  color="primary"></ion-menu-button>
-              <ion-title class="ion-text-start" > Our Foods</ion-title>
             </ion-buttons>
+              <ion-title  > Our Foods</ion-title>
             <ion-buttons slot="end">
               <ion-button>
                 <ion-icon :icon="mail"></ion-icon>
