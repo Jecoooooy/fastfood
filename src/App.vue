@@ -81,7 +81,7 @@
             <div class="profile"  >
               <img alt="Silhouette of a person's head" src="../public/images/jecoy.jpg" />
             </div>
-            <div class="d-flex align-center" style="padding-left: 20px;">
+            <div @click="goToDashboard()" class="d-flex align-center" style="padding-left: 20px;">
                 <div class="crown">
                     <img src="../../public/images/crown.svg" alt="">
                 </div>
@@ -148,14 +148,14 @@
     IonInput,
     IonNote,
     IonIcon,
-
+    menuController 
   } from '@ionic/vue';
   import { useRouter } from 'vue-router';
   import {ref,onMounted} from 'vue'
   import { eye, lockClosed, personCircle,chevronForwardOutline } from 'ionicons/icons';
   const router = useRouter()
   const routes = router.options.routes
-  let start = ref(true) // false
+  let start = ref(false) // false
   let logo = ref(false)
   
   let log = ref(false)
@@ -214,6 +214,10 @@
   }
   function navigate(item){
     router.push(item);
+  }
+  async function  goToDashboard(){
+    router.push('/dashboard')
+    await menuController.close()
   }
   onMounted(() => {
     setTimeout(() => {

@@ -6,7 +6,6 @@
             <ion-toolbar v-show="header" color="secondary" >
                 <ion-buttons>
                     <ion-menu-button color="primary"></ion-menu-button>
-                    
                 </ion-buttons>
                 <ion-title>
                     <ion-button fill="clear">
@@ -31,7 +30,7 @@
         <!-- </ion-header> -->
     </transition>
 
-        <ion-content :fullscreen="true" ref="contentRef" scrollEvents="true" @ionScroll="scrolling" >
+        <ion-content :fullscreen="true" ref="contentRef" color="secondary" scrollEvents="true" @ionScroll="scrolling" >
         <transition name="slide-up" mode=out-in>
             <div class="container" v-show="main">
                 <div class="ion-padding">
@@ -378,9 +377,6 @@
             }
         }
     }
-    
-    
-
 
     function loadComponents(){
         let delayLoad = 0

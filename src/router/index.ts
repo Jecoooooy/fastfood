@@ -6,6 +6,7 @@ import OrderPage from '../views/OrderPage.vue';
 import NotificationsPage from '../views/NotificationsPage.vue';
 import StoreLocation from '../views/StoreLocation.vue';
 import FAQsPage from '../views/FAQsPage.vue';
+import Dashboard from '../views/Dashboard.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -76,6 +77,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/orderpage',
     name:'Order Page',
     component: OrderPage,
+  },
+  {
+    path: '/dashboard',
+    name:'dashboard',
+    component: Dashboard,
   }
 ]
 

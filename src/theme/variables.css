@@ -1,6 +1,7 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
 @import 'text.css';
+@import 'progress.css';
 :root {
     --ion-color-primary: #d71921;
     --ion-color-primary-rgb: 105, 187, 123;
@@ -10,9 +11,9 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-primary-tint: #f0989c;
 
 
-    --ion-color-secondary: #ffffff;
+    --ion-color-secondary: #FAFAFA;
     --ion-color-secondary-rgb: 105, 187, 123;
-    --ion-color-secondary-contrast: #d71921;
+    --ion-color-secondary-contrast: #000000;
     --ion-color-secondary-contrast-rgb: 0, 0, 0;
     --ion-color-secondary-shade: #750e13;
     --ion-color-secondary-tint: #f0989c;
@@ -21,7 +22,7 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-color-tertiary: #b8b8b8;
     --ion-color-tertiary-rgb: 105, 187, 123;
-    --ion-color-tertiary-contrast: #d71921;
+    --ion-color-tertiary-contrast: #686868;
     --ion-color-tertiary-contrast-rgb: 0, 0, 0;
     --ion-color-tertiary-shade: #424242;
     --ion-color-tertiary-tint: #000000;
