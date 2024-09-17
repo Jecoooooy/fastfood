@@ -31,166 +31,171 @@
         <!-- </ion-header> -->
 
         <ion-content :fullscreen="true" ref="contentRef"  scrollEvents="true" @ionScroll="scrolling" >
-        <transition name="slide-up" mode=out-in>
-            <div class="container" v-show="main">
-                <div class="ion-padding">
-                    <ion-grid :fixed="true">
-                        <ion-row style="margin:0px -8px;">
-                            <ion-col id="appLogo" class="d-flex" size="3" style="min-height: 105px; justify-content: end;" >
-                                <transition name="slide-right" mode="out-in">
-                                <div v-show="divTransition.appLogo" class="logo-container">
-                                    <img  src="../../public/images/logo.png" alt="My Image"></img>
-                                </div>
-                                </transition>
-                            </ion-col>
-                            <ion-col size="9" ref="message" class="d-flex justify-center" style="flex-direction: column;">
-                                <transition name="slide-down" mode="out-in">
-                                    <p v-show="divTransition.greetings">Anneoyong. Chou!</p>
-                                </transition>
-                                <transition name="slide-left" mode="out-in">
-                                    <h1 v-show="divTransition.question">
-                                        <strong>
-                                            What do you want to eat?
-                                        </strong>
-                                    </h1>
-                                </transition>
-                            </ion-col>
-                            <ion-col size="12" id="searchInput" style="min-height: 82px; ">
-                                <transition name="slide-up" mode="out-in">
-                                    <ion-input 
-                                        v-show="divTransition.search"
-                                        mode="md"
-                                        class="custom ion-margin-bottom"
-                                        type="email"
-                                        placeholder="try our new Steak Fries Veggies"
-                                        :clear-input="true"
-                                        fill="outline"
-                                        label-placement="stacked"
-                                    > 
-                                        <ion-icon 
+            <transition name="slide-up" mode=out-in>
+                <div class="container" v-show="main">
+                    <div class="ion-padding">
+                        <ion-grid :fixed="true">
+                            <ion-row style="margin:0px -8px;">
+                                <ion-col id="appLogo" class="d-flex" size="3" style="min-height: 105px; justify-content: end;" >
+                                    <transition name="slide-right" mode="out-in">
+                                    <div v-show="divTransition.appLogo" class="logo-container">
+                                        <img  src="../../public/images/logo.png" alt="My Image"></img>
+                                    </div>
+                                    </transition>
+                                </ion-col>
+                                <ion-col size="9" ref="message" class="d-flex justify-center" style="flex-direction: column;">
+                                    <transition name="slide-down" mode="out-in">
+                                        <p v-show="divTransition.greetings">Anneoyong. Chou!</p>
+                                    </transition>
+                                    <transition name="slide-left" mode="out-in">
+                                        <h1 v-show="divTransition.question">
+                                            <strong>
+                                                What do you want to eat?
+                                            </strong>
+                                        </h1>
+                                    </transition>
+                                </ion-col>
+                                <ion-col size="12" id="searchInput" style="min-height: 82px; ">
+                                    <transition name="slide-up" mode="out-in">
+                                        <ion-input 
+                                            v-show="divTransition.search"
+                                            mode="md"
+                                            class="custom ion-margin-bottom"
+                                            type="email"
+                                            placeholder="try our new Steak Fries Veggies"
+                                            :clear-input="true"
+                                            fill="outline"
+                                            label-placement="stacked"
+                                        > 
+                                            <ion-icon 
+                                                size="small" 
+                                                slot="start" 
+                                                :icon="search"
+                                                aria-hidden="true"
+                                            ></ion-icon>
+                                        </ion-input>
+                                    </transition>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                    <ion-grid :fixed="true" >
+                        <div class="d-flex align-center justify-space-between ion-padding-horizontal" id="offers" style="min-height: 50px;">
+                            <transition name="slide-right" mode="out-in">
+                                <h3 v-show="divTransition.offers"><strong>Special Offers!</strong></h3>
+                            </transition>
+                            <transition name="slide-left" mode="out-in">    
+                                <ion-text v-show="divTransition.viewBtn" color="primary">
+                                    <ion-button size="small" color="primary" fill="clear">
+                                        View All
+                                        <ion-icon
                                             size="small" 
-                                            slot="start" 
-                                            :icon="search"
+                                            slot="end" 
+                                            :icon="chevronForwardOutline"
                                             aria-hidden="true"
-                                        ></ion-icon>
-                                    </ion-input>
-                                </transition>
-                            </ion-col>
-                        </ion-row>
+                                        > </ion-icon>
+                                    </ion-button>
+                                </ion-text>
+                            </transition>
+                        </div>
+                        <div id="bannerContainer" style="min-height: 200px;"> 
+                        <transition name="slide-left" mode="out-in">
+                            <div v-show="divTransition.banner" class="scrollable-toolbar">
+                                <div class="banner" v-for="(item,index) in banner">
+                                    <img  :src="item.image" alt="My Image"></img>
+                                </div>
+                            </div>
+                        </transition>
+                        </div>
+                        <div id="categoryTitle" style="min-height: 40px;">
+                        <transition name="slide-right" mode="out-in">
+                            <h3 v-show="divTransition.categoryTitle" class="ion-padding-horizontal">
+                                <strong>Category</strong>
+                            </h3>
+                        </transition>
+                        </div>
+                        <div id="categoryContent" style="min-height: 320px;">
+                            <transition name="slide-left" mode="out-in">
+                                <div v-show="divTransition.categoryContent" class="scrollable-toolbar ion-padding-bottom">
+                                    <div class="category" v-for="(item,index) in category">
+                                        <img  :src="item.image" alt="My Image"></img>
+                                        <div class="category-content">
+                                            <p>{{ item.category }}</p>
+                                            <span>{{ item.recipes }} Recipes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
+                        </div>
+                        <div id="whatsNewTitle" style="min-height: 40px;">
+                            <transition name="slide-right" mode="out-in">
+                                <h3 v-show="divTransition.whatsNewTitle" class="ion-padding" >
+                                    <strong>What's New</strong>
+                                </h3>
+                            </transition>
+                        </div>
+                        <div id="whatsNewContent" style="min-height: 220px;">
+                        <transition name="slide-left" mode="out-in">
+                            <div v-show="divTransition.whatsNewContent" class="ion-padding-end ion-padding-start ion-padding-bottom">
+                                <div class="whatsNew">
+                                    <img :src="whatsNew" alt="no photo available">
+                                </div>
+                            </div>
+                        </transition>
+                        </div>
+                        <div id="popularTitle" style="min-height: 40px;">
+                            <transition name="slide-right" mode="out-in">
+                                <h3 v-show="divTransition.popularTitle" class="ion-padding-horizontal ion-padding-top" style="padding-bottom:8px;" >
+                                    <strong>Most Popular!</strong>
+                                </h3>
+                            </transition>
+                        </div>
+                        <ion-grid :fixed="true"  class="ion-padding-horizontal" style="min-height: 600px;" id="popularContent">
+                        <!-- <ion-row style="margin:0px -8px;"> -->
+                            <transition-group name="slide-up" mode="out-in" tag="div"  class="item-container">
+                                <ion-col 
+                                    size="6"
+                                    size-sm="6"
+                                    size-md="4"
+                                    size-lg="3"
+                                    v-show="cardDelay[index]"
+                                    v-for="(item,index) in favorites"
+                                    :key="index"
+                                >
+                                    <ion-card 
+                                    @click="goToOrderPage(item)"
+                                    class="ion-no-margin item-card" 
+                                    style="border-radius: 15px;" 
+                                    color="surface"> 
+                                    <img alt="photo not available" :src="item.image" />
+                                    <ion-card-header style="padding:10px;">
+                                        <p>{{ item.category }}</p>
+                                        <ion-card-subtitle>
+                                        {{item.title}}
+                                        </ion-card-subtitle>
+                                    </ion-card-header>
+                                    <ion-card-content class="card-content" >
+                                    <strong>
+                                        ₱ {{ item.price }} 
+                                    </strong>
+                                        <div class="stars">
+                                        <div :class="'star ' + (item.ratings >= (i+1) ? 'rate' : '')" v-for="(star,i) in 5" :key="i"> </div>
+                                        </div>
+                                    </ion-card-content>
+                                    </ion-card>
+                                </ion-col>
+                            </transition-group>
+                        <!-- </ion-row> -->
+                        </ion-grid>
+                    <div style="width:100%; height:100px;"></div>
                     </ion-grid>
                 </div>
-                <ion-grid :fixed="true" >
-                    <div class="d-flex align-center justify-space-between ion-padding-horizontal" id="offers" style="min-height: 50px;">
-                        <transition name="slide-right" mode="out-in">
-                            <h3 v-show="divTransition.offers"><strong>Special Offers!</strong></h3>
-                        </transition>
-                        <transition name="slide-left" mode="out-in">    
-                            <ion-text v-show="divTransition.viewBtn" color="primary">
-                                <ion-button size="small" color="primary" fill="clear">
-                                    View All
-                                    <ion-icon
-                                        size="small" 
-                                        slot="end" 
-                                        :icon="chevronForwardOutline"
-                                        aria-hidden="true"
-                                    > </ion-icon>
-                                </ion-button>
-                            </ion-text>
-                        </transition>
-                    </div>
-                    <div id="bannerContainer" style="min-height: 200px;"> 
-                    <transition name="slide-left" mode="out-in">
-                        <div v-show="divTransition.banner" class="scrollable-toolbar">
-                            <div class="banner" v-for="(item,index) in banner">
-                                <img  :src="item.image" alt="My Image"></img>
-                            </div>
-                        </div>
-                    </transition>
-                    </div>
-                    <div id="categoryTitle" style="min-height: 40px;">
-                    <transition name="slide-right" mode="out-in">
-                        <h3 v-show="divTransition.categoryTitle" class="ion-padding-horizontal">
-                            <strong>Category</strong>
-                        </h3>
-                    </transition>
-                    </div>
-                    <div id="categoryContent" style="min-height: 320px;">
-                        <transition name="slide-left" mode="out-in">
-                            <div v-show="divTransition.categoryContent" class="scrollable-toolbar ion-padding-bottom">
-                                <div class="category" v-for="(item,index) in category">
-                                    <img  :src="item.image" alt="My Image"></img>
-                                    <div class="category-content">
-                                        <p>{{ item.category }}</p>
-                                        <span>{{ item.recipes }} Recipes</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </transition>
-                    </div>
-                    <div id="whatsNewTitle" style="min-height: 40px;">
-                        <transition name="slide-right" mode="out-in">
-                            <h3 v-show="divTransition.whatsNewTitle" class="ion-padding" >
-                                <strong>What's New</strong>
-                            </h3>
-                        </transition>
-                    </div>
-                    <div id="whatsNewContent" style="min-height: 220px;">
-                    <transition name="slide-left" mode="out-in">
-                        <div v-show="divTransition.whatsNewContent" class="ion-padding-end ion-padding-start ion-padding-bottom">
-                            <div class="whatsNew">
-                                <img :src="whatsNew" alt="no photo available">
-                            </div>
-                        </div>
-                    </transition>
-                    </div>
-                    <div id="popularTitle" style="min-height: 40px;">
-                        <transition name="slide-right" mode="out-in">
-                            <h3 v-show="divTransition.popularTitle" class="ion-padding-horizontal ion-padding-top" style="padding-bottom:8px;" >
-                                <strong>Most Popular!</strong>
-                            </h3>
-                        </transition>
-                    </div>
-                    <ion-grid :fixed="true"  class="ion-padding-horizontal" style="min-height: 600px;" id="popularContent">
-                    <!-- <ion-row style="margin:0px -8px;"> -->
-                        <transition-group name="slide-up" mode="out-in" tag="div"  class="item-container">
-                            <ion-col 
-                                size="6"
-                                size-sm="6"
-                                size-md="4"
-                                size-lg="3"
-                                v-show="cardDelay[index]"
-                                v-for="(item,index) in favorites"
-                                :key="index"
-                            >
-                                <ion-card 
-                                @click="goToOrderPage(item)"
-                                class="ion-no-margin item-card" 
-                                style="border-radius: 15px;" 
-                                color="surface"> 
-                                <img alt="photo not available" :src="item.image" />
-                                <ion-card-header style="padding:10px;">
-                                    <p>{{ item.category }}</p>
-                                    <ion-card-subtitle>
-                                    {{item.title}}
-                                    </ion-card-subtitle>
-                                </ion-card-header>
-                                <ion-card-content class="card-content" >
-                                <strong>
-                                    ₱ {{ item.price }} 
-                                </strong>
-                                    <div class="stars">
-                                    <div :class="'star ' + (item.ratings >= (i+1) ? 'rate' : '')" v-for="(star,i) in 5" :key="i"> </div>
-                                    </div>
-                                </ion-card-content>
-                                </ion-card>
-                            </ion-col>
-                        </transition-group>
-                    <!-- </ion-row> -->
-                    </ion-grid>
-                <div style="width:100%; height:100px;"></div>
-            </ion-grid>
-        </div>
-    </transition>
+            </transition>
+            <transition name="slide-right" mode="out-in">
+                <ion-button size="large" class="float-button" @click="goToOrderNowPage()">
+                Order Now!
+                </ion-button>
+            </transition>
         </ion-content>
     </ion-page>
     
@@ -233,6 +238,11 @@
         order.value = item
         setTimeout(() => {
         router.push('/orderpage')
+        }, 100);
+    }
+    function goToOrderNowPage(){
+        setTimeout(() => {
+        router.push('/ordernow')
         }, 100);
     }
 
@@ -407,6 +417,23 @@
     })
 </script>
 <style>
+    .float-button{
+            position: fixed;
+            transition: all 0.2s ease-in-out;
+            z-index: 100;
+            bottom: 10px;
+            right: 10px;
+            filter: drop-shadow(0 5px 5px black);
+            margin-top: 0px;
+    }
+    .float-button:active{
+        filter: drop-shadow(0 0px 2px black);
+        bottom: 5px;
+    }
+    .float-button:hover{
+        filter: drop-shadow(0 0px 2px black);
+        
+    }
     .logo-container{
         max-width: 100px;
         width: 100%;
